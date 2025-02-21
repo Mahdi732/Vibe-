@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/vibe', function(Request $request){
+    $ne = '<h1>vibe  BUT not my type but wisssam is exception</h1>';
+    dd($ne);
+    return '<h1>vibe  BUT not my type but wisssam is exception</h1>';
+});
+
+Route::get('/dark', function(Request $request){
+    dd ($request);
 });
 
 require __DIR__.'/auth.php';
